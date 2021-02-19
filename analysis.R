@@ -43,8 +43,35 @@ incarceration_over_time_plot <-
     x = "Year",
     y = "Population",
     color = "Population Types")
-
+ 
 ################################################################################################################
 ##Part 3########################################################################################################
 
-top_10_black_incarceration_states_df <- 
+top_10_black_incarceration_states_df <- incarceration_df %>%
+  filter(year == 2016) %>%
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  group_by(state) %>%
+  summarise(black_incarceration_rate = (sum(black_jail_pop, black_prison_pop) / sum(black_pop_15to64)) * 100,
+         total_incarcerated_rate = (sum(total_jail_pop + total_prison_pop) / sum(total_pop_15to64)) * 100, 
+         .groups = "drop") %>%
+  slice_max(black_incarceration_rate, n = 10) %>%
+  pivot_longer(!state, names_to = "name", values_to = "value")
+
+top_10_black_incarceration_plot <-
+  ggplot(top_10_black_incarceration_states_df, aes(x = value, y = factor(state, levels = rev(unique(state))))) +
+  geom_col(
+    aes(fill = name),
+    position = position_dodge2(reverse = TRUE)
+  ) +
+  scale_fill_manual(name = "", labels=c("Black", "Total"), values=c("Black", "firebrick4")) +
+  labs(title = "States with Highest Rate of Black Incarceration",
+      x = "Percent Incarcerated",
+      y = "State"
+  ) +
+  scale_x_continuous(labels = scales::percent_format(scale = 1))
+  
+################################################################################################################
+##Part 4########################################################################################################
+  
+
+  
