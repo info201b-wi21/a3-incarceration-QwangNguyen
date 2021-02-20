@@ -22,22 +22,26 @@ The data used in this report is quite recent with the latest complete data set b
 ```{r}
 incarceration_over_time_plot
 ```
+  
   The trends I noticed about the incarcerated populations, is that most of them increased, especially that of the Black and White community. The black and white incarceration rates are both over double that of the next closest which would be Latinx.
   
 ## Highest Black Incarceration Rates
 ```{r}
 top_10_black_incarceration_plot
 ```
+  
   The trend that I noticed was that the countries with the highest incarceration ratios for Black people are commonly found in the southern half of the country. The southern half of the country is generally more conservative so that could be a reason. The data that could be missing is the other ethinicities incarceration rates. Another thing that could be interesting to look at is population. Percent incarcerated can be extremely high and missleading if the population is minute.
   
 ## Racial Incarceration Discrepancy
 ```{r}
 black_white_ratio_plot
 ```
+  
   There is one major outlier in the data, and it is Lincoln county. Most other counties are relatively equal with some being on the higher side. However, Lincoln county has a ratio of 12 which is insanely high. Upon closer research, I think the reason for the insanely high ratio is that Lincoln county has a black population of only 83. This means that if as few as 8 people get arrested, thats already 10% of the population which could skew the data heavily.
   
 ## Your Own Visualization
 ```{r}
 AAPI_white_ratio_map
 ```
+  
   For my own visualization, I decided to look at the Asian American Pacific Islander incarceration rates in California. I did this because I am an Asian American and I know that California has a large Asian American population. I also wanted to do this because I know Asians are considered model minorities and stereotypically thought to be good citizens so I was curious as to how true this is. Well the map certainly makes a case for this as most of the counties are white or light light green meaning that the asian incarceration rate was less than that of the white population. The only outlier is Mariposa County but closer research has revealed that the Asian population is only 200 people so the results could be skewed. This is an effective visual layout because it accurately portrays each county in a easy and intuitive manner to understand. Also the bold colors really stand out and emphasive a stark contrast between areas. I selected this visual layout because I really like the way the Washington one stood out to me.
