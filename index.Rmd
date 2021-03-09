@@ -10,37 +10,33 @@ source("analysis.R")
 ```
 
 ## Data Description
-```{r}
-data_description
-```
-
   The data for this report came from [the vera institute](https://github.com/vera-institute/incarceration-trends#data). The size of the data set or number of observations is `r data_description$Number_of_observations`. The range of years this data set covers is
 `r data_description$Range_of_Years`. The number of people currently incarcerated in prison as of 2016 is `r data_description$Most_Recent_Pop_Totals$prison`. With the number in jail being `r data_description$Most_Recent_Pop_Totals$jail`.
 The data used in this report is quite recent with the latest complete data set being 2016. This data does not reflect the most recent presidential administration however, as Trump took office in 2016, so this report   would only reflect the Obama administration.
   
 ## Incarceration Trends Over Time
-```{r}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 incarceration_over_time_plot
 ```
   
   The trends I noticed about the incarcerated populations, is that most of them increased, especially that of the Black and White community. The black and white incarceration rates are both over double that of the next closest which would be Latinx.
   
 ## Highest Black Incarceration Rates
-```{r}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 top_10_black_incarceration_plot
 ```
   
   The trend that I noticed was that the countries with the highest incarceration ratios for Black people are commonly found in the southern half of the country. The southern half of the country is generally more conservative so that could be a reason. The data that could be missing is the other ethinicities incarceration rates. Another thing that could be interesting to look at is population. Percent incarcerated can be extremely high and missleading if the population is minute.
   
 ## Racial Incarceration Discrepancy
-```{r}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 black_white_ratio_plot
 ```
   
   There is one major outlier in the data, and it is Lincoln county. Most other counties are relatively equal with some being on the higher side. However, Lincoln county has a ratio of 12 which is insanely high. Upon closer research, I think the reason for the insanely high ratio is that Lincoln county has a black population of only 83. This means that if as few as 8 people get arrested, thats already 10% of the population which could skew the data heavily.
   
 ## Your Own Visualization
-```{r}
+```{r message=FALSE, warning=FALSE, echo=FALSE}
 AAPI_white_ratio_map
 ```
   

@@ -18,7 +18,7 @@ current_pop <- incarceration_df %>%
 current_pop <-as.list(current_pop)
 
 data_description <- list(nrow(incarceration_df), range(incarceration_df$year, na.rm = TRUE), current_pop)
-names(data_description) <- c("Number of observations", "Range of Years", "Most Recent Pop Totals")
+names(data_description) <- c("Number_of_observations", "Range_of_Years", "Most_Recent_Pop_Totals")
 
 ################################################################################################################
 ##Part 2########################################################################################################
@@ -27,14 +27,16 @@ incarceration_time_series_df <- incarceration_df %>%
   drop_na(total_prison_pop) %>%
   group_by(year) %>%
   mutate_all(~replace(., is.na(.), 0)) %>%
+  drop_na(total_prison_pop) %>%
   mutate(Total = total_jail_pop + total_prison_pop, 
          White = white_jail_pop + white_prison_pop,
          Black = black_jail_pop + black_prison_pop,
          Latinx = latinx_jail_pop + latinx_prison_pop,
          AAPI = aapi_jail_pop + aapi_prison_pop,
-         Native = native_jail_pop + native_prison_pop)%>%
+         Native = native_jail_pop + native_prison_pop) %>%
   summarise(across(Total : Native, sum)) %>%
-  pivot_longer(!year, names_to = "race", values_to = "value")
+  pivot_longer(!year, names_to = "race", values_to = "value") %>%
+  filter(year >= 1980)
 
 incarceration_over_time_plot <- 
   ggplot(incarceration_time_series_df, mapping = aes(year, value, colour = race)) +
